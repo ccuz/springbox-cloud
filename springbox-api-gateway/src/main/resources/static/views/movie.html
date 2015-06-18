@@ -12,6 +12,11 @@
         <li ng-repeat="genre in movie.genres"><a href="#/genre/{{genre.mlId}}">{{genre.name}}</a></li>
     </ul>
 
+    <h2>Contributors:</h2>
+    <ul>
+        <li ng-repeat="contributor in movie.contributors">{{contributor.contribName}}</li>
+    </ul>
+
     <h2>Reviews:</h2>
     <a href="#/movie/{{movie.mlId}}/review" ng-disabled="!authenticated" class="btn btn-primary">Add Review</a>
 </div>

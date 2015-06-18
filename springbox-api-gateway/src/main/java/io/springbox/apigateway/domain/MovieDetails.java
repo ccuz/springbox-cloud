@@ -1,6 +1,7 @@
 package io.springbox.apigateway.domain;
 
 import io.springbox.apigateway.services.catalog.Genre;
+import io.springbox.apigateway.services.imdb.Contributor;
 import io.springbox.apigateway.services.recommendations.Movie;
 import io.springbox.apigateway.services.reviews.Review;
 
@@ -12,6 +13,7 @@ public class MovieDetails {
     private List<Review> reviews;
     private List<Genre> genres;
     private List<Movie> recommendations;
+    private List<Contributor> contributors;
     private Boolean likes;
 
     public String getTitle() {
@@ -60,5 +62,13 @@ public class MovieDetails {
 
     public Boolean getLikes() {
         return likes;
+    }
+
+    public List<Contributor> getContributors() {
+        return contributors;
+    }
+
+    public void setContributors(List<Contributor> contributors) {
+        this.contributors = contributors;
     }
 }

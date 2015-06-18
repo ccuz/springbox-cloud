@@ -2,6 +2,7 @@ package io.springbox.apigateway.controllers;
 
 import io.springbox.apigateway.domain.MovieDetails;
 import io.springbox.apigateway.services.catalog.CatalogIntegrationService;
+import io.springbox.apigateway.services.imdb.ImdbIntegrationService;
 import io.springbox.apigateway.services.recommendations.RecommendationsIntegrationService;
 import io.springbox.apigateway.services.reviews.ReviewsIntegrationService;
 import org.apache.commons.logging.Log;
@@ -31,6 +32,9 @@ public class ApiGatewayController {
 
     @Autowired
     RecommendationsIntegrationService recommendationsIntegrationService;
+
+    @Autowired
+    ImdbIntegrationService imdbIntegrationService;
 
     @RequestMapping("/movie/{mlId}")
     public DeferredResult<MovieDetails> movieDetails(@PathVariable String mlId,
@@ -70,6 +74,7 @@ public class ApiGatewayController {
                     movieDetails.setReviews(reviews);
                     movieDetails.setRecommendations(recommendations);
                     movieDetails.setGenres(movie.getGenres());
+                    movieDetails.setContributors(imdbIntegrationService.getMovieContributors(movie.getTitle()));
                     return movieDetails;
                 }
         );

@@ -1,0 +1,15 @@
+server:
+  port: 8098
+spring:
+  data:
+    mongo:
+      repositories:
+        enabled: true
+    mongodb:
+      uri: mongodb://localhost
+      database: movies
+
+management:
+  health:
+    mongo:
+      enabled: true

@@ -10,6 +10,7 @@ zuul:
     springbox-catalog: /catalog/**
     springbox-reviews: /reviews/**
     springbox-recommendations: /recommendations/**
+    springbox-imdb: /contributors/**
     user:
       path: /user/**
       url: http://localhost:9999/uaa/user
